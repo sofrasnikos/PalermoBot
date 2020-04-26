@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 
-namespace Example
+namespace PalermoBot
 {
     class Program
     {

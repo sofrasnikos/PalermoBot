@@ -4,7 +4,7 @@ using Microsoft.Extensions.Configuration;
 using System.Threading.Tasks;
 using System;
 
-namespace Example
+namespace PalermoBot
 {
     public class CommandHandler
     {

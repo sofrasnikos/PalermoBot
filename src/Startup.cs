@@ -6,7 +6,7 @@ using Discord.WebSocket;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Example
+namespace PalermoBot
 {
     public class Startup
     {

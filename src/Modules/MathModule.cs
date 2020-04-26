@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Example.Modules
+namespace PalermoBot.Modules
 {
     [Name("Math")]
     [Summary("Do some math I guess")]

@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.26228.9
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29509.3
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Discord.Net-Example", "src\Discord.Net-Example.csproj", "{8F39F095-C020-496B-A0E8-ACBD70D39A7C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PalermoBot", "src\PalermoBot.csproj", "{8F39F095-C020-496B-A0E8-ACBD70D39A7C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -30,5 +30,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {19E87C94-08EE-4FCC-B512-A252DE19DE18}
 	EndGlobalSection
 EndGlobal
