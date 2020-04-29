@@ -19,9 +19,9 @@ namespace PalermoBot.Modules
         [Summary("The (optional) user to get info from")]
         params SocketUser[] users)
         {
-            await _distributeRolesService.SendRolesAsync(users);
+            var roundCount = await _distributeRolesService.SendRolesAsync(users);
 
-            await ReplyAsync($"Roles sent successfully to {users.Length} users");
+            await ReplyAsync($"[Round {roundCount}] Roles sent successfully to {users.Length} users");
         }
     }
 }

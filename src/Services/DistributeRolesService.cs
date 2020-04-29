@@ -8,18 +8,22 @@ namespace Palermo.Services
 {
     public class DistributeRolesService
     {
-        public async Task SendRolesAsync(params SocketUser[] users)
+        private int roundCount = 1;
+        public async Task<int> SendRolesAsync(params SocketUser[] users)
         {
+            var roundLabel = "Round "; // todo move to config
             var roles = BuildRolesList(users.Length);
             var tasks = new List<Task>();
             int i = 0;
 
             foreach (var user in users)
             {
-                tasks.Add(Task.Run(() => user.SendMessageAsync(roles[i++])));
+                var message = $"[{roundLabel} {roundCount}]  **{roles[i++]}**";
+                tasks.Add(Task.Run(() => user.SendMessageAsync(message)));
             }
 
             await Task.WhenAll(tasks);
+            return roundCount++;
         }
 
         private List<string> BuildRolesList(int n)
