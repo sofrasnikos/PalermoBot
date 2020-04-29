@@ -2,6 +2,7 @@
 using Discord.Commands;
 using Discord.WebSocket;
 using Microsoft.Extensions.Configuration;
+using Palermo.Services;
 using System;
 using System.Reflection;
 using System.Threading.Tasks;
@@ -14,18 +15,21 @@ namespace PalermoBot
         private readonly DiscordSocketClient _discord;
         private readonly CommandService _commands;
         private readonly IConfigurationRoot _config;
+        private readonly DistributeRolesService _distributeRoles;
 
         // DiscordSocketClient, CommandService, and IConfigurationRoot are injected automatically from the IServiceProvider
         public StartupService(
             IServiceProvider provider,
             DiscordSocketClient discord,
             CommandService commands,
-            IConfigurationRoot config)
+            IConfigurationRoot config,
+            DistributeRolesService distributeRoles)
         {
             _provider = provider;
             _config = config;
             _discord = discord;
             _commands = commands;
+            _distributeRoles = distributeRoles;
         }
 
         public async Task StartAsync()

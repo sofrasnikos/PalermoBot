@@ -5,6 +5,7 @@ using Discord.Commands;
 using Discord.WebSocket;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Palermo.Services;
 
 namespace PalermoBot
 {
@@ -55,6 +56,7 @@ namespace PalermoBot
             .AddSingleton<StartupService>()         // Add startupservice to the collection
             .AddSingleton<LoggingService>()         // Add loggingservice to the collection
             .AddSingleton<Random>()                 // Add random to the collection
+            .AddSingleton<DistributeRolesService>()
             .AddSingleton(Configuration);           // Add the configuration to the collection
         }
     }
