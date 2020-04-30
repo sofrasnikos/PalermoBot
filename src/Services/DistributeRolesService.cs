@@ -2,6 +2,7 @@
 using Discord.WebSocket;
 using Microsoft.Extensions.Configuration;
 using Palermo.Helpers;
+using Palermo.Lib;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -9,8 +10,6 @@ namespace Palermo.Services
 {
     public class DistributeRolesService
     {
-        private int roundCount = 1;
-
         private readonly IConfigurationRoot _config;
 
         public DistributeRolesService(IConfigurationRoot config)
@@ -18,20 +17,31 @@ namespace Palermo.Services
             _config = config;
         }
 
-        public async Task<int> SendRolesAsync(params SocketUser[] users)
+        public async Task<int> SendRolesAsync(RoundState roundState)
         {
-            var roles = BuildRolesList(users.Length);
+            var users = roundState.Users;
+            List<string> roles;
+            if (roundState.CustomRoles != null && 
+                roundState.CustomRoles.Count == roundState.Users.Length)
+            {
+                roles = roundState.CustomRoles;
+            }
+            else
+            {
+                roles = BuildRolesList(users.Length);
+            }
+
             var tasks = new List<Task>();
             int i = 0;
 
             foreach (var user in users)
             {
-                var message = $"[Round {roundCount}]  **{roles[i++]}**";
+                var message = $"[Round {roundState.RoundCount}]  **{roles[i++]}**";
                 tasks.Add(Task.Run(() => user.SendMessageAsync(message)));
             }
 
             await Task.WhenAll(tasks);
-            return roundCount++;
+            return roundState.RoundCount++;
         }
 
         private List<string> BuildRolesList(int n)

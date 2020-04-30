@@ -1,7 +1,7 @@
 {
     "commandPrefix": "!",
     "token": "token goes here",
-	"version": "1.0",
+	"version": "1.1",
     "labels": {
         "hiddenKiller": "Κρυφός Δολοφόνος",
         "killer": "Δολοφόνος",
