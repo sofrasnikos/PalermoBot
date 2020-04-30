@@ -34,9 +34,9 @@ namespace PalermoBot
 
         public async Task StartAsync()
         {
-            string discordToken = _config["tokens:discord"];     // Get the discord token from the config file
+            string discordToken = _config["token"];     // Get the discord token from the config file
             if (string.IsNullOrWhiteSpace(discordToken))
-                throw new Exception("Please enter your bot's token into the `_configuration.json` file found in the applications root directory.");
+                throw new Exception("Please enter your bot's token into the `config.json` file found in the applications root directory.");
 
             await _discord.LoginAsync(TokenType.Bot, discordToken);     // Login to discord
             await _discord.StartAsync();                                // Connect to the websocket

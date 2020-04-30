@@ -19,6 +19,8 @@ namespace PalermoBot.Modules
         [Summary("The (optional) user to get info from")]
         params SocketUser[] users)
         {
+            // todo if users = 0
+
             var roundCount = await _distributeRolesService.SendRolesAsync(users);
 
             await ReplyAsync($"[Round {roundCount}] Roles sent successfully to {users.Length} users");

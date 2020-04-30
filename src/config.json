@@ -1,0 +1,11 @@
+{
+    "commandPrefix": "!",
+    "token": "token goes here",
+	"version": "1.0",
+    "labels": {
+        "hiddenKiller": "Κρυφός Δολοφόνος",
+        "killer": "Δολοφόνος",
+        "civilian": "Πολίτης",
+        "policeman": "Αστυνόμος"
+    }
+}

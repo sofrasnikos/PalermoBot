@@ -17,7 +17,7 @@ namespace PalermoBot
         {
             var builder = new ConfigurationBuilder()        // Create a new instance of the config builder
                 .SetBasePath(AppContext.BaseDirectory)      // Specify the default location for the config file
-                .AddYamlFile("_config.yml");                // Add this (yaml encoded) file to the configuration
+                .AddJsonFile("config.json");                // Add this json to the configuration
             Configuration = builder.Build();                // Build the configuration
         }
 
@@ -55,7 +55,6 @@ namespace PalermoBot
             .AddSingleton<CommandHandler>()         // Add the command handler to the collection
             .AddSingleton<StartupService>()         // Add startupservice to the collection
             .AddSingleton<LoggingService>()         // Add loggingservice to the collection
-            .AddSingleton<Random>()                 // Add random to the collection
             .AddSingleton<DistributeRolesService>()
             .AddSingleton(Configuration);           // Add the configuration to the collection
         }

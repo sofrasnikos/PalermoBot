@@ -20,7 +20,7 @@ namespace PalermoBot.Modules
         [Command("help")]
         public async Task HelpAsync()
         {
-            string prefix = _config["prefix"];
+            string prefix = _config["commandPrefix"];
             var builder = new EmbedBuilder()
             {
                 Color = new Color(114, 137, 218),
@@ -62,7 +62,7 @@ namespace PalermoBot.Modules
                 return;
             }
 
-            string prefix = _config["prefix"];
+            string prefix = _config["commandPrefix"];
             var builder = new EmbedBuilder()
             {
                 Color = new Color(114, 137, 218),

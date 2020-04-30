@@ -37,7 +37,7 @@ namespace PalermoBot
             var context = new SocketCommandContext(_discord, msg);     // Create the command context
 
             int argPos = 0;     // Check if the message has a valid command prefix
-            if (msg.HasStringPrefix(_config["prefix"], ref argPos) || msg.HasMentionPrefix(_discord.CurrentUser, ref argPos))
+            if (msg.HasStringPrefix(_config["commandPrefix"], ref argPos) || msg.HasMentionPrefix(_discord.CurrentUser, ref argPos))
             {
                 var result = await _commands.ExecuteAsync(context, argPos, _provider);     // Execute the command
 
